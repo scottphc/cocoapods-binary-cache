@@ -29,6 +29,10 @@ module Pod
           @binary_cache_config[:excluded_pods] || Set.new
         end
 
+        def force_included_pods
+          @binary_cache_config[:force_included_pods] || Set.new
+        end
+
         def dev_pods_enabled?
           @binary_cache_config[:dev_pods_enabled]
         end

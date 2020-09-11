@@ -89,6 +89,9 @@ module PodPrebuild
         .select { |_, specs| specs.all?(&:empty_source_files?) }
         .keys
 
+      force_included_pods = Pod::Podfile::DSL.force_included_pods
+      pods_with_empty_source_files -= force_included_pods.to_a
+
       PodPrebuild::StateStore.excluded_pods += pods_with_empty_source_files
       Pod::UI.puts "Exclude pods with empty source files: #{pods_with_empty_source_files.to_a}"
 
