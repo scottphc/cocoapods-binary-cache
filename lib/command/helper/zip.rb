@@ -12,7 +12,7 @@ module PodPrebuild
 
     def self.unzip(path, to_dir: nil)
       cmd = []
-      cmd << "unzip -q" << path
+      cmd << "unzip -n -q" << path
       cmd << "-d" << to_dir unless to_dir.nil?
       `#{cmd.join(" ")}`
     end
